@@ -1,4 +1,4 @@
-"""backend URL Configuration
+"""backend2 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -16,13 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.contrib import admin
-from allauth.account.views import confirm_email
+from rest_framework.authtoken import views
+from api.views import registration_view
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('api/v1/',include('api.urls')),
-    url(r'^rest-auth/', include('rest_auth.urls')),
-    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
-    url(r'^account/', include('allauth.urls')),
-    url(r'^accounts-rest/registration/account-confirm-email/(?P<key>.+)/$', confirm_email, name='account_confirm_email'),
+    url('api_generate_token/', views.obtain_auth_token),
+    url('register/', registration_view, name='Register')
 ]

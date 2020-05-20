@@ -32,7 +32,7 @@ class User(AbstractBaseUser):
     isAdmin = models.BooleanField(default=False)
     objects = UserManager()
 
-    USERNAME_FIELD = 'email'
+    USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['name', 'email']
 
     def __str__(self):
@@ -69,5 +69,3 @@ class Favorites_users(models.Model):
 class Bookmark_users(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
-
-
