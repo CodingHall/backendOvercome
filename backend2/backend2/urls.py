@@ -18,10 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework.authtoken import views
 from api.views import registration_view
+from django.conf import settings
 
 urlpatterns = [
     url('admin/', admin.site.urls),
     url('api/v1/',include('api.urls')),
     url('api_generate_token/', views.obtain_auth_token),
     url('register/', registration_view, name='Register')
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
