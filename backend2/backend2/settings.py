@@ -100,14 +100,24 @@ WSGI_APPLICATION = 'backend2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'overcome',
+        'USER': 'overcome',
+        'PASSWORD': 'Dk1yId3m^@3B',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
+}
 AUTH_USER_MODEL = 'api.User'
 
 # Password validation
