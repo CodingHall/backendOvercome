@@ -31,13 +31,10 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 X_FRAME_OPTIONS = 'DENY'
 
-ALLOWED_HOSTS = ['overcomebackend.ucaribeprojects.xyz']
+ALLOWED_HOSTS = ['overcomebackend.ucaribeprojects.xyz', 'www.overcomebackend.ucaribeprojects.xyz']
 
-CORS_ORIGIN_WHITELIST = (
-  'http://localhost:8080',
-  'http://127.0.0.1:8080',
-  'http://overcomebackend.ucaribeprojects.xyz',
-)
+CORS_ORIGIN_ALLOW_ALL = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -156,10 +153,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-# Configuración de activos estáticos
-BASE_DIR = os.path.dirname (os.path.abspath(__file__))
-STATIC_ROOT = 'staticfiles'
-STATICFILES_DIRS = (
-    os.path.join (BASE_DIR, 'static'),
-)
-STATIC_URL = STATICFILES_DIRS
+STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+STATICFILES_DIRS = [ BASE_DIR + "/assets", ]
+STATIC_ROOT = BASE_DIR + '/static'
+MEDIA_ROOT = BASE_DIR + '/media'
